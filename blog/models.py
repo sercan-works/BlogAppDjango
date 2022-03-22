@@ -43,6 +43,11 @@ class Post(models.Model):
     def like_count(self):
         return self.like.count()
 
+    def get_category_display(self):
+        return self.category.name
+    
+    def get_author_display(self):
+        return self.author.username
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -53,12 +58,18 @@ class Comment(models.Model):
     def __str__(self):
         return self.user.username 
 
+    def get_user_display(self):
+        return self.user.username
+     
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE,related_name="like")
 
     def __str__(self):
         return self.user.username
+
+    def get_user_display(self):
+        return self.user.username    
 
 class PostView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
