@@ -1,7 +1,5 @@
 from .base import *
 import os
-import dj_database_url
-DATABASES = dj_database_url.config()
 
 THIRD_PARTY_APPS = ["debug_toolbar"]
 
