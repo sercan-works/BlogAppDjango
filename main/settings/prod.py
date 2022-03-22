@@ -13,3 +13,7 @@ DATABASES = {
         "ATOMIC_REQUESTS": True,
     }
 }
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
