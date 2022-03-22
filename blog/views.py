@@ -10,7 +10,7 @@ from .permissions import IsAdminOrReadOnly,IsOwnerOrReadOnly
 
 
 class PostList(APIView):
-    permission_classes = [IsAdminOrReadOnly]
+    #permission_classes = [IsAdminOrReadOnly]
     def get(self,request, format=None):
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
@@ -26,7 +26,7 @@ class PostList(APIView):
 
 class PostDetail(APIView):
     #authentication_classes = [SessionAuthentication,BasicAuthentication]
-    permission_classes = [IsOwnerOrReadOnly]
+    #permission_classes = [IsOwnerOrReadOnly]
     def get_object(self,pk):
         return get_object_or_404(Post, pk=pk)
     
