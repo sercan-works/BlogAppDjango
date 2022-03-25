@@ -29,7 +29,7 @@ class Post(models.Model):
     #comment = models.ForeignKey(Comment,on_delete=models.CASCADE)
     publish_date = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
-    author = models.CharField(max_length=50) #models.ForeignKey(User,on_delete=models.CASCADE)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
     status = models.CharField(max_length=10,choices=OPTIONS,default='d')
     slug = models.SlugField(blank=True, unique=False) #Uniqe değiştirildi
 
