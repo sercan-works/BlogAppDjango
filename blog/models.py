@@ -24,7 +24,7 @@ class Post(models.Model):
 
     title = models.CharField(max_length=100)
     content = models.TextField()
-    image = models.ImageField(upload_to=user_directory_path,default='blog.png')
+    image = models.CharField(max_length=255)     #models.ImageField(upload_to=user_directory_path,default='blog.png') # local directory için
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     #comment = models.ForeignKey(Comment,on_delete=models.CASCADE)
     publish_date = models.DateTimeField(auto_now_add=True)
